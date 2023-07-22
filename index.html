@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Matrices e integrales</title>
+  <style>
+    /* Estilos opcionales para mejorar la apariencia */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    input[type="number"] {
+      width: 40px;
+    }
+    .Raiz{
+      color:blue
+    }
+    .Integral{
+      color:red
+    }
+    .Matriz{
+      color:rgb(32, 133, 42)
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Calculadora de Integrales, Raiz y Matrices</h1>
+
+  <h2 class="Integral">Resolver Integral</h2>
+  <label for="funcion">Ingrese la función:</label>
+  <input type="text" id="funcion" required />
+
+  <label for="ix">Límite inferior (ix):</label>
+  <input type="number" id="ix" required />
+
+  <label for="sx">Límite superior (sx):</label>
+  <input type="number" id="sx" required />
+
+  <label for="n">Número de trapecios (n):</label>
+  <input type="number" id="n" value="1000" required />
+
+  <button onclick="calcularIntegral()">Resolver</button>
+
+  <p style="font-weight: bold;">Resultado de la Integral <span id="resultadoIntegral"></span></p>
+  <div id="resultadoIntegralDiv"></div>
+
+  <h2 class="Raiz">Calcular Raíz</h2>
+  <label for="raiz">Ingrese el número:</label>
+  <input type="number" id="raiz" required />
+
+  <label for="nr">Número de raíz:</label>
+  <input type="number" id="nr" required />
+
+  <label for="err">Tolerancia:</label>
+  <input type="number" id="err" value="0.0001" required />
+
+  <label for="it">Número de iteraciones:</label>
+  <input type="number" id="it" value="1000" required />
+
+  <button onclick="calcularRaiz()">Calcular</button>
+
+  <p style="font-weight: bold;">Resultado de la Raíz: <span id="resultadoRaiz"></span></p>
+  <div id="resultadoRaizDiv"></div>
+
+  <h2 class="Matriz">Resolver Matrices</h2>
+
+  <form onsubmit="event.preventDefault(); ingresarMatrices()">
+    <label for="filas">Filas:</label>
+    <input type="number" id="filas" required />
+
+    <label for="columnas">Columnas:</label>
+    <input type="number" id="columnas" required />
+
+    <button type="submit">Ingresar Matrices</button>
+  </form>
+
+  <div id="matricesContainer" style="display: none;">
+    <h2>Ingrese los valores de las matrices</h2>
+
+    <h3>Matriz A</h3>
+    <table id="matrixA">
+      <!-- Aquí se generarán los campos de input para la matriz A -->
+    </table>
+
+    <h3>Matriz B</h3>
+    <table id="matrixB">
+      <!-- Aquí se generarán los campos de input para la matriz B -->
+    </table>
+
+    <button onclick="sumarMatrices()">Sumar</button>
+    <button onclick="restarMatrices()">Restar</button>
+    <button onclick="multiplicarMatrices()">Multiplicar</button>
+    <button onclick="calcularInversa()">Inversa</button>
+    <button onclick="calcularTranspuesta()">Transpuesta</button>
+
+    <p style="font-weight: bold;">Resultado</p>
+    <table id="resultado">
+      <!-- Aquí se mostrará el resultado de la operación seleccionada -->
+    </table>
+  </div>
+
+  <script type="module">
+    import {
+      ingresarMatrices,
+      sumarMatrices,
+      restarMatrices,
+      multiplicarMatrices,
+      calcularInversa,
+      calcularTranspuesta,
+      calcularIntegral,
+      calcularRaiz
+    } from './Ope.js';
+
+    window.ingresarMatrices = ingresarMatrices;
+    window.sumarMatrices = sumarMatrices;
+    window.restarMatrices = restarMatrices;
+    window.multiplicarMatrices = multiplicarMatrices;
+    window.calcularInversa = calcularInversa;
+    window.calcularTranspuesta = calcularTranspuesta;
+    window.calcularIntegral = calcularIntegral;
+    window.calcularRaiz = calcularRaiz;
+  </script>
+</body>
+</html>
